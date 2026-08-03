@@ -1,0 +1,52 @@
+/* ═══════════════════════════════════════════
+   SUBPÁGINAS — cabeçalho, corpo e clínicas
+═══════════════════════════════════════════ */
+
+.sp-head{
+  position:sticky;top:0;z-index:15;
+  display:flex;align-items:center;gap:14px;
+  padding:calc(var(--safe-t) + 13px) 22px 13px;
+  background:rgba(249,250,246,.9);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.back-btn{
+  width:34px;height:34px;flex-shrink:0;border-radius:50%;
+  border:1px solid var(--line);color:var(--sage-700);font-size:15px;
+  display:flex;align-items:center;justify-content:center;transition:border-color .2s;
+}
+.back-btn:active{border-color:var(--clay-500)}
+.sp-title{font-family:var(--ff-display);font-size:21px;font-weight:500;color:var(--ink);flex:1}
+
+.sp-body{
+  max-width:468px;margin:0 auto;
+  padding:24px 22px calc(var(--safe-b) + 48px);
+  display:flex;flex-direction:column;gap:14px;
+  animation:fadeU .4s ease both;
+}
+
+/* ══════════════════════════════
+   CLÍNICAS
+══════════════════════════════ */
+.cat-desc{font-size:14.5px;line-height:1.75;color:var(--ink-2)}
+
+.clin-list{display:flex;flex-direction:column;gap:12px}
+
+.clin-card{
+  display:flex;align-items:center;gap:14px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+  padding:16px 17px;
+}
+.clin-card.online{border-color:var(--clay-400);background:var(--clay-100)}
+.clin-ico{
+  width:42px;height:42px;flex-shrink:0;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  background:var(--sage-100);border:1px solid var(--line-soft);
+}
+.clin-card.online .clin-ico{background:#fff}
+.clin-name{font-family:var(--ff-display);font-size:18px;font-weight:500;color:var(--ink)}
+.clin-addr{font-size:12.5px;line-height:1.5;color:var(--dim);margin-top:3px}
+
+.info-note{
+  border:1px dashed var(--sage-300);border-radius:var(--r-md);padding:15px 16px;
+  font-size:13px;line-height:1.7;color:var(--ink-2);background:rgba(255,255,255,.5);
+}
