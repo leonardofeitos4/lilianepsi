@@ -14,7 +14,7 @@ index.html              todas as telas (home, clínicas e chat), em uma SPA sem 
 │   ├── main.css        tokens de design, reset, sistema de páginas, componentes
 │   ├── home.css        capa, pilares, diferenciais, pacotes, galeria, links, rodapé
 │   ├── pages.css       cabeçalho padrão das subpáginas + cards de clínica
-│   └── chat.css        assistente "Lu"
+│   └── chat.css        assistente "EVO"
 ├── js/
 │   └── app.js          hidratação, navegação, ripple
 ├── data/

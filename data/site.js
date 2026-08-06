@@ -13,18 +13,18 @@ const SITE = {
   crp:       'CRP-PB 13/14130',
   publico:   'Crianças · Adolescentes · Adultos',
 
-  whatsapp:  '5583999999999',          // AJUSTAR — só números, com 55 + DDD
+  whatsapp:  '558499836270',           // +55 84 9983-6270 — confirmado pela Liliane
   instagram: 'psicolilianemedeiros',
-  email:     '',                       // AJUSTAR — deixe '' para ocultar o card
+  email:     'medeiros.liliane@gmail.com',   // deixe '' para ocultar o card
 
   cidade:    'João Pessoa · PB',       // AJUSTAR
 
   fichaUrl:  'https://forms.gle/dgEXZfTjodpxRC9e7',   // Ficha de cadastro de paciente
 
   assistente: {
-    nome:      'Lu',
-    monograma: 'L',
-    assinatura:'Lu · Assistente digital',
+    nome:      'EVO',
+    monograma: 'E',
+    assinatura:'EVO · Assistente digital',
   },
 };
 

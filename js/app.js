@@ -46,6 +46,7 @@ function hydrate() {
     cidade:    SITE.cidade,
     instagram: '@' + SITE.instagram,
     email:     SITE.email,
+    assistente:SITE.assistente.nome,
   };
   document.querySelectorAll('[data-txt]').forEach(el => {
     const v = textos[el.dataset.txt];
@@ -74,6 +75,7 @@ function sincronizar() {
   const id = POR_SLUG[location.hash.slice(1)] || null;
   if (id === paginaAtual) return;
 
+  /* o vídeo que sai da tela é pausado pelo IntersectionObserver (bindVideos) */
   if (paginaAtual) document.getElementById(paginaAtual).classList.remove('active');
   paginaAtual = id;
 
@@ -117,9 +119,71 @@ function bindRipple() {
 }
 
 /* ══════════════════════════════
-   4. BOOT
+   4. GALERIA — card em tela cheia
+══════════════════════════════ */
+function abrirMidia(html) {
+  const lb = document.getElementById('lb');
+  document.getElementById('lb-stage').innerHTML = html;
+  lb.classList.add('open');
+}
+
+function fecharMidia() {
+  const lb = document.getElementById('lb');
+  if (!lb.classList.contains('open')) return;
+  lb.classList.remove('open');
+  document.getElementById('lb-stage').innerHTML = '';
+}
+
+/* ══════════════════════════════
+   5. TOUR PELO ESPAÇO (Clínicas)
+   Vídeos rodam sozinhos, sem som e em
+   loop — só enquanto estão na tela.
+══════════════════════════════ */
+function verMaisEspaco() {
+  const extra = document.getElementById('esp-extra');
+  extra.hidden = false;
+  document.getElementById('esp-more').remove();
+
+  /* só agora o segundo vídeo começa a baixar */
+  const v = extra.querySelector('video');
+  if (v.dataset.src) { v.src = v.dataset.src; delete v.dataset.src; }
+  extra.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function bindVideos() {
+  const videos = document.querySelectorAll('.esp-media video');
+
+  const obs = new IntersectionObserver(entradas => {
+    entradas.forEach(({ target, isIntersecting }) => {
+      if (target.dataset.src) return;                  // ainda não revelado
+      if (!isIntersecting) { target.pause(); return; }
+
+      /* iOS em modo de baixo consumo bloqueia o autoplay:
+         nesse caso mostramos os controles para dar play na mão. */
+      const p = target.play();
+      if (p) p.catch(() => { target.controls = true; });
+    });
+  }, { threshold: 0.35 });
+
+  videos.forEach(v => obs.observe(v));
+}
+
+function bindGaleria() {
+  document.querySelectorAll('.gal-card').forEach(card => {
+    card.addEventListener('click', () => {
+      abrirMidia(`<img src="${card.dataset.zoom}" alt="">`);
+    });
+  });
+
+  addEventListener('keydown', e => { if (e.key === 'Escape') fecharMidia(); });
+}
+
+/* ══════════════════════════════
+   6. BOOT
 ══════════════════════════════ */
 hydrate();
 renderClinicas();
 bindRipple();
+bindGaleria();
+bindVideos();
 sincronizar();

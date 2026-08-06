@@ -8,9 +8,9 @@ editar `data/site.js` (itens marcados com `AJUSTAR`).
 
 | Campo | Valor atual | O que preciso |
 |---|---|---|
-| `whatsapp` | `5583999999999` | Número real, só dígitos, com `55` + DDD |
+| `whatsapp` | `558499836270` | Resolvido — `+55 84 9983-6270`, confirmado pela Liliane. Sem o nono dígito, é assim mesmo. Se algum dia o botão parar de abrir a conversa, o primeiro teste é acrescentar o `9`: `5584999836270` |
 | `instagram` | `psicolilianemedeiros` | Confirmar se é esse mesmo o @ |
-| `email` | vazio | E-mail profissional. Se ficar vazio, o card de e-mail some sozinho |
+| `email` | `medeiros.liliane@gmail.com` | Resolvido — passado pela Liliane (04/08) |
 | `crp` | `CRP-PB 13/14130` | Resolvido — veio do cartão de perfil (`liliane.jpeg`) |
 | `cidade` | `João Pessoa · PB` | Confirmar cidade/estado |
 
@@ -49,9 +49,22 @@ dizer com cada palavra do lema.
 
 ## 6. Fotos e vídeos
 
-A seção "Fotos e vídeos" está com 3 blocos de placeholder ("Foto em breve" /
-"Vídeo em breve"), sem imagem real ainda. Assim que tiver as fotos/vídeos,
-troco os blocos por conteúdo de verdade.
+Resolvido. Na home, a seção virou **"Novidades"**, com os 3 cards que a
+Liliane mandou (`assets/img/card-*.jpeg`). Tocar em um card abre em tela
+cheia, porque o texto da arte não é legível na miniatura.
+
+Os 2 vídeos saíram da home e foram para a página **Clínicas**
+(`assets/video/clinica-*.mp4`), logo abaixo da lista de clínicas: aparece o da
+entrada, e o botão "Conhecer o espaço de atendimento" revela o segundo. Rodam
+sozinhos, **sem som** e em loop, só enquanto estão na tela — e o segundo vídeo
+só começa a baixar quando a pessoa toca no botão.
+
+Pendente:
+- **Texto dos dois vídeos** — escrevi um rascunho ("caminho até a sala de
+  atendimento" / "sala reservada e acolhedora"), mas não vi os vídeos: a
+  Liliane precisa confirmar ou reescrever.
+- **De qual clínica são os vídeos?** Hoje o bloco não diz. Se for de uma das
+  três (Bancários / Manaíra / Altiplano), vale identificar.
 
 No esboço também aparecem anotações de **"Vídeo da semana"** e **"Conteúdo da
 semana"** — entendi como lembretes de planejamento de conteúdo para o
@@ -60,6 +73,10 @@ vídeo em destaque atualizado toda semana), me avisa que eu monto essa seção.
 
 ## 7. Assistente digital
 
-Criei o assistente com o nome "Lu" (abreviação de Liliane) só como
-placeholder. Se quiserem outro nome, é rápido de trocar em `data/site.js` →
-`assistente`.
+Resolvido: o assistente se chama **EVO** (substituiu o placeholder "Lu").
+Nome, monograma e assinatura ficam em `data/site.js` → `assistente`, e o resto
+do site lê daí — inclusive o título da página de chat.
+
+A apresentação dele agora é "Eu sou EVO", sem artigo, para não dar gênero ao
+nome. Se a Liliane preferir tratar como "o EVO" ou "a EVO", é só ajustar em
+`chatbot/engine.js` → `startChat()`.

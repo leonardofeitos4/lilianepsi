@@ -46,6 +46,30 @@
 .clin-name{font-family:var(--ff-display);font-size:18px;font-weight:500;color:var(--ink)}
 .clin-addr{font-size:12.5px;line-height:1.5;color:var(--dim);margin-top:3px}
 
+/* ── Tour pelo espaço ── */
+.esp{display:flex;flex-direction:column;gap:12px}
+.esp-media{
+  border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);
+  background:var(--sage-900);box-shadow:var(--shadow-sm);line-height:0;
+}
+/* contain + altura livre: não corta nada, seja vídeo em pé ou deitado */
+.esp-media video{
+  width:100%;height:auto;object-fit:contain;display:block;
+  max-height:68vh;max-height:68dvh;
+}
+.esp-txt{font-size:13.5px;line-height:1.75;color:var(--ink-2)}
+.esp-more{
+  align-self:flex-start;display:flex;align-items:center;gap:8px;
+  padding:11px 18px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;
+  font-size:13.5px;color:var(--sage-700);box-shadow:var(--shadow-sm);
+  transition:border-color .2s,transform .2s;
+}
+.esp-more:active{border-color:var(--clay-500);transform:scale(.98)}
+.esp-arr{font-size:12px;color:var(--clay-500)}
+.esp-extra{display:flex;flex-direction:column;gap:12px;animation:fadeU .4s ease both}
+.esp-extra[hidden]{display:none}
+
 .info-note{
   border:1px dashed var(--sage-300);border-radius:var(--r-md);padding:15px 16px;
   font-size:13px;line-height:1.7;color:var(--ink-2);background:rgba(255,255,255,.5);

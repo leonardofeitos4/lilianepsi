@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   MOTOR DO CHAT — Lu
+   MOTOR DO CHAT — assistente digital
    Depende de: data/site.js, config.js, flows.js
 ═══════════════════════════════════════════ */
 
@@ -48,7 +48,7 @@ function runFlow(id, label) {
 /* Abertura do chat */
 function startChat() {
   botMsg(
-    `Olá! Eu sou a <strong>${CONFIG.nome}</strong>, assistente digital da <strong>${SITE.nome}</strong>. 🌿<br><br>` +
+    `Olá! Eu sou <strong>${CONFIG.nome}</strong>, assistente digital da <strong>${SITE.nome}</strong>. 🌿<br><br>` +
     `Posso te ajudar com dúvidas sobre o atendimento, as clínicas e os pacotes.`,
     flows.inicio.chips
   );

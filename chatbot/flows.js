@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   FLUXOS — Lu, assistente da Liliane Medeiros
+   FLUXOS — assistente digital da Liliane Medeiros
 
    Estrutura de cada fluxo:
    {
