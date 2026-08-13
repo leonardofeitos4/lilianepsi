@@ -117,6 +117,32 @@ a{color:var(--clay-600);text-decoration:none}
 
 .ripple{position:absolute;border-radius:50%;background:rgba(113,135,106,.20);transform:scale(0);animation:rip .5s ease-out;pointer-events:none}
 
+/* ── Carrossel: uma foto por vez, passando sozinho (ver bindCarrossel
+   em js/app.js). Usado nas Novidades da home, em Gotas de terapia e no
+   detalhe de cada clínica.
+   `contain` + proporção quadrada: mostra a arte inteira, sem cortar
+   texto — as artes vêm do Instagram, então recortar come o conteúdo. ── */
+.carrossel{overflow:hidden}
+.carrossel-trilha{
+  display:flex;align-items:flex-start;
+  overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+}
+.carrossel-trilha::-webkit-scrollbar{display:none}
+/* a foto define a altura do slide — sem fundo sobrando em volta, e a
+   arte aparece inteira, seja ela quadrada ou em pé */
+.carrossel-slide{
+  flex:0 0 100%;scroll-snap-align:center;position:relative;
+  padding:0;display:block;overflow:hidden;
+  border-radius:var(--r-lg);box-shadow:var(--shadow-sm);
+}
+.carrossel-slide img{width:100%;height:auto;display:block}
+.carrossel-dots{display:flex;justify-content:center;gap:7px;padding:12px 0 2px}
+.carrossel-dot{
+  width:6px;height:6px;border-radius:50%;padding:0;border:none;
+  background:var(--line);transition:background .2s,transform .2s;
+}
+.carrossel-dot.active{background:var(--clay-500);transform:scale(1.4)}
+
 /* ── Animações ── */
 @keyframes fadeU{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes fadeD{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}

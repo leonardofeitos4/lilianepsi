@@ -16,29 +16,46 @@ editar `data/site.js` (itens marcados com `AJUSTAR`).
 
 ## 2. Foto e logo
 
-Resolvido: encontrei o cartão de perfil da Liliane (estava salvo por engano
-na pasta da bioclara) e usei a foto (`assets/img/liliane.jpeg`) como avatar
-do topo. Também guardei `assets/img/cover-fonte.png` (arte de capa para
-Instagram) como referência — não é usada diretamente no site, o enquadramento
-dela não fica bem como foto de capa do biolink.
-
-Se quiserem uma foto de capa retangular (estilo "hero", como nos outros
-perfis), é só me passar uma foto adicional.
+Resolvido: a foto de perfil (`assets/img/liliane.jpeg`) segue como avatar,
+agora sobreposta a uma capa retangular no topo da home — `assets/img/
+cover-fonte.png`, a arte colorida com os ícones (avião, coração, estrela
+etc.) e o nome dela, que já estava guardada no projeto desde o início (era só
+referência de Instagram até a Liliane pedir pra usar como capa mesmo). Layout
+inspirado no biolink que o Leonardo mandou de referência (Instituto Danielle
+Azevedo): capa larga + avatar circular por cima, encostando na borda de
+baixo.
 
 ## 3. Clínicas — `data/clinicas.js`
 
-Estão listadas **Bancários**, **Manaíra**, **Altiplano** e **atendimento
-online**, do esboço, mas sem endereço completo (só o bairro/cidade). Preciso
-do endereço de cada clínica para preencher o campo `endereco` — hoje o site
-mostra só "João Pessoa · PB" nesses casos.
+Resolvido. Endereços, fotos do espaço e o nome do coworking confirmados pela
+Liliane (12/08):
 
-## 4. Pacotes e valores — `index.html` (botão "Pacotes e valores")
+- **Bancários** — Empresarial Delta Center. Espaço Vida & Cérebro Kids e
+  CASULU Colaborativo. 4 fotos.
+- **Manaíra** — Av. Governador Flávio Ribeiro Coutinho, 500, dentro do Liv
+  Mall. CASULU Colaborativo. 2 fotos.
+- **Estados** — Av. Epitácio Pessoa, 2055, Empresarial Bel Center. CASULU
+  Colaborativo. 2 fotos. Essa clínica substituiu a **Altiplano** do esboço
+  original.
 
-O valor não aparece mais direto na tela — virou um botão (como Clínicas,
-Instagram etc.) que já leva pro WhatsApp com a mensagem pronta, pra não expor
-preço de cara. Ainda preciso saber:
-- Os valores reais (ou se preferem manter só "sob consulta" sem valor nenhum)
-- Se existem pacotes diferentes (ex.: 4 sessões, 8 sessões) para listar cada um
+Cada clínica agora é um card clicável na página **Clínicas**: a pessoa toca,
+entra numa página de detalhe só daquela clínica com as fotos do espaço (toca
+pra ampliar). O vídeo do tour (item 6) é confirmado como sendo da
+**Bancários** — por isso ele só aparece no detalhe dela, não mais como um
+bloco genérico solto embaixo da lista.
+
+## 4. Gotas de terapia — `index.html` / `data/clinicas.js`
+
+O botão "Pacotes e valores" saiu da lista de links (a Liliane preferiu não
+ter um ponto de entrada fixo pra preço — quem perguntar, é respondido no
+WhatsApp ou pelo assistente). No lugar entrou **"Gotas de terapia"**, um
+espaço para troca de conhecimento e reflexões, com um carrossel de 4 artes
+que a Liliane mandou (`assets/img/gotas-carrossel-*.jpeg`).
+
+Pendente: a própria Liliane comentou que a ideia principal é esse conteúdo
+ser em **vídeo**, e o carrossel é só o conteúdo provisório enquanto isso não
+existe. Assim que tiver o vídeo, troco o carrossel pelo player (mesmo padrão
+dos vídeos de clínica, item 6).
 
 ## 5. Diferenciais — `index.html` (seção "Diferenciais")
 
@@ -53,18 +70,16 @@ Resolvido. Na home, a seção virou **"Novidades"**, com os 3 cards que a
 Liliane mandou (`assets/img/card-*.jpeg`). Tocar em um card abre em tela
 cheia, porque o texto da arte não é legível na miniatura.
 
-Os 2 vídeos saíram da home e foram para a página **Clínicas**
-(`assets/video/clinica-*.mp4`), logo abaixo da lista de clínicas: aparece o da
-entrada, e o botão "Conhecer o espaço de atendimento" revela o segundo. Rodam
-sozinhos, **sem som** e em loop, só enquanto estão na tela — e o segundo vídeo
-só começa a baixar quando a pessoa toca no botão.
+Os 2 vídeos saíram da home e foram para o detalhe da clínica **Bancários**
+(`assets/video/clinica-*.mp4`, ver item 3): aparece o da entrada, e o botão
+"Conhecer o espaço de atendimento" revela o segundo. Rodam sozinhos, **sem
+som** e em loop, só enquanto estão na tela — e o segundo vídeo só começa a
+baixar quando a pessoa toca no botão.
 
 Pendente:
 - **Texto dos dois vídeos** — escrevi um rascunho ("caminho até a sala de
   atendimento" / "sala reservada e acolhedora"), mas não vi os vídeos: a
   Liliane precisa confirmar ou reescrever.
-- **De qual clínica são os vídeos?** Hoje o bloco não diz. Se for de uma das
-  três (Bancários / Manaíra / Altiplano), vale identificar.
 
 No esboço também aparecem anotações de **"Vídeo da semana"** e **"Conteúdo da
 semana"** — entendi como lembretes de planejamento de conteúdo para o

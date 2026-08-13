@@ -35,6 +35,11 @@
 <div class="pg" id="home">
   <div class="home-wrap">
 
+    <!-- Capa -->
+    <div class="hero-banner">
+      <img src="assets/img/cover-fonte.png" alt="Liliane Medeiros — Psicóloga Clínica">
+    </div>
+
     <!-- Marca -->
     <div class="hdr">
       <div class="avatar-shell">
@@ -82,11 +87,11 @@
         <div class="ctxt"><div class="ct">Clínicas</div><div class="cs">Locais de atendimento e online</div></div>
         <div class="carr">→</div>
       </div>
-      <a class="lcard" data-wa="Olá! Gostaria de saber os valores dos pacotes de atendimento.">
-        <div class="cico mono">R$</div>
-        <div class="ctxt"><div class="ct">Pacotes e valores</div><div class="cs">Sessões avulsas ou em pacote</div></div>
+      <div class="lcard" onclick="go('page-gotas')">
+        <div class="cico">💧</div>
+        <div class="ctxt"><div class="ct">Gotas de terapia</div><div class="cs">Espaço para troca de conhecimento e reflexões</div></div>
         <div class="carr">→</div>
-      </a>
+      </div>
       <a class="lcard" data-href="instagram">
         <div class="cico">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#C97B5A" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -116,19 +121,20 @@
 
     <!-- Galeria -->
     <div class="dv"><div class="dl"></div><div class="dt">Novidades</div><div class="dl"></div></div>
-    <div class="gal-wrap">
-      <div class="gal-scroll">
-        <button class="gal-card" data-zoom="assets/img/card-horarios-sabado.jpeg">
-          <img src="assets/img/card-horarios-sabado.jpeg" alt="Novos horários disponíveis: sábado pela manhã" loading="lazy">
+    <div class="carrossel">
+      <div class="carrossel-trilha" id="novidades-scroll">
+        <button class="carrossel-slide" data-zoom="assets/img/card-horarios-sabado.jpeg">
+          <img src="assets/img/card-horarios-sabado.jpeg" alt="Novos horários disponíveis: sábado pela manhã">
         </button>
-        <button class="gal-card" data-zoom="assets/img/card-psicoterapia-infantojuvenil.jpeg">
-          <img src="assets/img/card-psicoterapia-infantojuvenil.jpeg" alt="A importância da psicoterapia infantojuvenil através da Terapia Cognitivo-Comportamental" loading="lazy">
+        <button class="carrossel-slide" data-zoom="assets/img/card-psicoterapia-infantojuvenil.jpeg">
+          <img src="assets/img/card-psicoterapia-infantojuvenil.jpeg" alt="A importância da psicoterapia infantojuvenil através da Terapia Cognitivo-Comportamental">
         </button>
-        <button class="gal-card" data-zoom="assets/img/card-horarios-noturnos.jpeg">
-          <img src="assets/img/card-horarios-noturnos.jpeg" alt="Horários noturnos disponíveis na semana, atendimento voltado para adultos" loading="lazy">
+        <button class="carrossel-slide" data-zoom="assets/img/card-horarios-noturnos.jpeg">
+          <img src="assets/img/card-horarios-noturnos.jpeg" alt="Horários noturnos disponíveis na semana, atendimento voltado para adultos">
         </button>
       </div>
-      <div class="gal-hint">Toque no card para ampliar</div>
+      <div class="carrossel-dots" id="novidades-dots"></div>
+      <div class="gal-hint">Toque na foto para ampliar</div>
     </div>
 
     <!-- Rodapé -->
@@ -171,40 +177,66 @@
     <div class="sp-title">Clínicas</div>
   </div>
   <div class="sp-body">
-    <p class="cat-desc">Atendimento presencial em três clínicas em João Pessoa, ou online, de onde você estiver.</p>
+    <p class="cat-desc">Atendimento presencial em três clínicas em João Pessoa, ou online, de onde você estiver. Toque em uma clínica para ver fotos do espaço.</p>
 
     <div id="clin-list" class="clin-list"></div>
 
-    <!-- Tour pelo espaço -->
-    <div class="esp">
-      <div class="esp-media">
-        <video src="assets/video/clinica-entrada.mp4" autoplay muted loop playsinline preload="metadata"></video>
-      </div>
-      <p class="esp-txt">
-        Antes da primeira sessão é comum querer saber como é o lugar. Este é o
-        caminho até a sala de atendimento — para você já chegar reconhecendo o
-        espaço.
-      </p>
-
-      <button class="esp-more" id="esp-more" onclick="verMaisEspaco()">
-        Conhecer o espaço de atendimento <span class="esp-arr">↓</span>
-      </button>
-
-      <div class="esp-extra" id="esp-extra" hidden>
-        <div class="esp-media">
-          <video data-src="assets/video/clinica-dentro.mp4" autoplay muted loop playsinline preload="none"></video>
-        </div>
-        <p class="esp-txt">
-          E aqui é a sala onde acontecem os atendimentos: um ambiente reservado
-          e acolhedor, preparado para receber crianças, adolescentes e adultos.
-        </p>
-      </div>
-    </div>
     <div class="info-note">
       Endereços completos e horários de cada clínica são confirmados no agendamento pelo WhatsApp.
     </div>
     <a class="cta-btn" data-wa="Olá, Liliane! Gostaria de saber mais sobre as clínicas de atendimento.">
       <span>Falar sobre as clínicas</span>
+      <span class="cta-arr">→</span>
+    </a>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     CLÍNICA — detalhe (conteúdo montado por
+     abrirClinica(), em data/clinicas.js)
+════════════════════════════════════════ -->
+<div class="pg subpg" id="page-clinica-detalhe">
+  <div class="sp-head">
+    <button class="back-btn" onclick="back()">←</button>
+    <div class="sp-title" id="cd-title">Clínica</div>
+  </div>
+  <div class="sp-body" id="cd-body"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     GOTAS DE TERAPIA
+════════════════════════════════════════ -->
+<div class="pg subpg" id="page-gotas">
+  <div class="sp-head">
+    <button class="back-btn" onclick="back()">←</button>
+    <div class="sp-title">Gotas de terapia</div>
+  </div>
+  <div class="sp-body">
+    <p class="cat-desc">Espaço para troca de conhecimento e reflexões sobre saúde emocional.</p>
+
+    <div class="carrossel">
+      <div class="carrossel-trilha" id="gotas-scroll">
+        <button class="carrossel-slide" data-zoom="assets/img/gotas-carrossel-1.jpeg">
+          <img src="assets/img/gotas-carrossel-1.jpeg" alt="Quando a terapia é indicada para crianças e adolescentes?">
+        </button>
+        <button class="carrossel-slide" data-zoom="assets/img/gotas-carrossel-2.jpeg">
+          <img src="assets/img/gotas-carrossel-2.jpeg" alt="Fatores como bullying, abusos, separação dos pais, imagem corporal e questões de identidade podem influenciar no desenvolvimento saudável de crianças e adolescentes">
+        </button>
+        <button class="carrossel-slide" data-zoom="assets/img/gotas-carrossel-3.jpeg">
+          <img src="assets/img/gotas-carrossel-3.jpeg" alt="Fique atento a mudanças de comportamento e atitudes, isolamento social, queda de rendimento escolar, dificuldades de interação, medos e agressividade">
+        </button>
+        <button class="carrossel-slide" data-zoom="assets/img/gotas-carrossel-4.jpeg">
+          <img src="assets/img/gotas-carrossel-4.jpeg" alt="A psicoterapia é uma aliada importante na jornada de crianças e adolescentes">
+        </button>
+      </div>
+      <div class="carrossel-dots" id="gotas-dots"></div>
+      <div class="gal-hint">Toque na foto para ampliar</div>
+    </div>
+
+    <a class="cta-btn" data-wa="Olá, Liliane! Vi o conteúdo sobre terapia infantojuvenil e gostaria de saber mais.">
+      <span>Falar com a Liliane</span>
       <span class="cta-arr">→</span>
     </a>
   </div>

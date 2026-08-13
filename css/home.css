@@ -8,10 +8,25 @@
   padding:calc(var(--safe-t) + 8px) 22px calc(var(--safe-b) + 128px);
 }
 
-/* ── Marca: monograma + nome ── */
+/* ── Capa: sangra até a borda da tela, não fica presa aos 468px do home-wrap ── */
+.hero-banner{
+  width:100vw;margin-left:calc(50% - 50vw);
+  margin-top:calc(-1 * (var(--safe-t) + 8px));
+  line-height:0;overflow:hidden;
+}
+.hero-banner img{width:100%;height:auto;display:block}
+
+/* Acima da largura de um celular, 100vw deixaria a capa gigante e cortaria
+   o resto da página; trava a altura e volta a cobrir, centralizado. */
+@media(min-width:560px){
+  .hero-banner img{height:300px;object-fit:cover;object-position:center 48%}
+}
+
+/* ── Marca: avatar sobreposto à capa + nome ── */
 .hdr{
+  position:relative;z-index:1;
   display:flex;flex-direction:column;align-items:center;text-align:center;
-  gap:5px;padding:26px 0 24px;animation:fadeD .6s ease both;
+  gap:5px;padding:0 0 24px;margin-top:-52px;animation:fadeD .6s ease both;
 }
 .avatar-shell{position:relative;width:100px;height:100px;margin-bottom:16px}
 .avatar-ring{
@@ -48,8 +63,11 @@
   margin-top:22px;background:var(--line-soft);
   border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden;
 }
-.pil{background:rgba(255,255,255,.78);padding:15px 8px;text-align:center}
-.pil-v{font-family:var(--ff-display);font-size:19px;font-weight:500;color:var(--sage-700);line-height:1.15}
+.pil{background:rgba(255,255,255,.78);padding:15px 6px;text-align:center;min-width:0}
+.pil-v{
+  font-family:var(--ff-display);font-size:19px;font-weight:500;color:var(--sage-700);
+  line-height:1.15;word-break:break-word;
+}
 .pil-l{font-family:var(--ff-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:6px}
 
 /* ── CTA principal ── */
@@ -89,22 +107,7 @@
 .cs{font-size:12px;color:var(--dim);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .carr{font-size:14px;color:var(--clay-500);flex-shrink:0}
 
-/* ── Galeria (fotos / vídeos) ── */
-.gal-wrap{margin:0 -22px;overflow:hidden}
-.gal-scroll{
-  display:flex;gap:12px;overflow-x:auto;padding:4px 22px 10px;
-  scroll-snap-type:x mandatory;scrollbar-width:none;
-}
-.gal-scroll::-webkit-scrollbar{display:none}
-.gal-card{
-  scroll-snap-align:start;flex:0 0 auto;height:268px;position:relative;
-  border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);
-  background:linear-gradient(160deg,var(--sage-100),var(--clay-100));
-  box-shadow:var(--shadow-sm);cursor:pointer;display:block;padding:0;
-  transition:transform .25s ease;
-}
-.gal-card:active{transform:scale(.97)}
-.gal-card img{height:100%;width:auto;max-width:none;object-fit:cover;display:block}
+/* ── Legenda abaixo dos carrosséis ── */
 .gal-hint{
   font-family:var(--ff-mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--sage-400);text-align:center;padding-bottom:2px;
