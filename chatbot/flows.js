@@ -7,6 +7,7 @@
      chips: [
        { l: 'Rótulo', f: 'id_do_fluxo' }  → navega
        { l: 'Rótulo', wa: 'mensagem' }    → abre WhatsApp
+       { l: 'Rótulo', url: 'https://…' }  → abre link externo
      ]
    }
 
@@ -48,7 +49,7 @@ const flows = {
   },
 
   pacotes: {
-    msg: `Os valores variam de acordo com o pacote de sessões escolhido.<br><br>A Liliane passa os valores individualmente no WhatsApp, já explicando as opções disponíveis.`,
+    msg: `Os valores variam de acordo com o pacote de sessões escolhido.<br><br>Há a possibilidade de <strong>parcelamento no cartão</strong>, e o pacote <strong>mês antecipado</strong> tem desconto no valor final das sessões.<br><br>A Liliane passa os valores individualmente no WhatsApp, já explicando as opções disponíveis.`,
     chips: [
       { l: 'Falar sobre valores', wa: 'Olá! Gostaria de saber os valores dos pacotes de atendimento.' },
       { l: 'Como funciona o atendimento', f: 'atendimento' },
@@ -57,8 +58,9 @@ const flows = {
 
   /* ── FECHAMENTO ── */
   agendar: {
-    msg: `Que bom! 🌿<br><br>É só tocar no botão abaixo que a Liliane te responde no WhatsApp para combinar o melhor horário.`,
+    msg: `Que bom! 🌿<br><br>Você pode ver os dias e horários disponíveis na agenda da Liliane, ou falar direto com ela no WhatsApp para combinar o melhor horário.`,
     chips: [
+      { l: '📅 Ver horários disponíveis', url: SITE.agendaUrl },
       { l: '💬 Falar no WhatsApp', wa: 'Olá, Liliane! Vim pelo link do perfil e gostaria de agendar uma consulta.' },
     ]
   },

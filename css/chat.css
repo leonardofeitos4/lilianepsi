@@ -83,6 +83,7 @@
 }
 @media(hover:hover){.qrb:hover{border-color:var(--clay-500);color:var(--clay-700)}}
 .qrb-wa{background:linear-gradient(135deg,var(--sage-600),var(--sage-800));border-color:transparent;color:#F8FBF5}
+.qrb-link{border-color:var(--sage-600);color:var(--sage-800)}
 .qrb-back{color:var(--dim);border-style:dashed}
 
 .chat-bottom{

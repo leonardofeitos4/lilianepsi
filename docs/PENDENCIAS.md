@@ -86,7 +86,33 @@ semana"** — entendi como lembretes de planejamento de conteúdo para o
 Instagram, não como uma seção fixa do site. Se for diferente (por exemplo, um
 vídeo em destaque atualizado toda semana), me avisa que eu monto essa seção.
 
-## 7. Assistente digital
+## 7. Agenda de horários — `data/site.js` → `agendaUrl`
+
+Pedido da Liliane (14/08): no fluxo "Quero agendar" do assistente, além do
+botão do WhatsApp, um link para a pessoa já ver os dias e horários
+disponíveis na agenda (planilha do Drive). Feito — agora aparecem os dois
+botões.
+
+O link usa o final `/preview` em vez de `/edit`, para abrir só em leitura
+(sem risco de alguém mexer na planilha, e sem levar junto o `ouid` da conta
+dela, que vinha no link compartilhado).
+
+Pendente:
+- **Confirmar o compartilhamento da planilha**: no Drive, precisa estar como
+  "qualquer pessoa com o link · leitor". Se estiver restrita, quem tocar no
+  botão vai cair numa tela de "pedir acesso".
+- **Confirmar se é essa planilha mesmo** e se ela é atualizada com
+  frequência — se a agenda ficar desatualizada, o botão trabalha contra.
+  Se um dia ela quiser tirar o botão, é só deixar `agendaUrl: ''` em
+  `data/site.js` que ele some sozinho do chat.
+
+## 8. Pacotes e pagamento — `chatbot/flows.js`
+
+Pedido da Liliane (14/08): informar que há **parcelamento no cartão** e que o
+pacote **mês antecipado** tem desconto no valor final das sessões. Incluído no
+fluxo "Pacotes e valores", mantendo os valores em si só no WhatsApp (item 4).
+
+## 9. Assistente digital
 
 Resolvido: o assistente se chama **EVO** (substituiu o placeholder "Lu").
 Nome, monograma e assinatura ficam em `data/site.js` → `assistente`, e o resto

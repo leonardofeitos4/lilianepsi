@@ -10,10 +10,12 @@ function showChips(chips, area) {
   const wrap = document.createElement('div');
   wrap.className = 'inline-chips';
 
-  let html = chips.map(c => c.wa
-    ? `<a class="qrb qrb-wa" href="${waLink(c.wa)}" target="_blank" rel="noopener">${c.l}</a>`
-    : `<button class="qrb" data-flow="${c.f}" data-label="${c.l}">${c.l}</button>`
-  ).join('');
+  /* um chip de link some sozinho se a URL ainda não estiver preenchida */
+  let html = chips.filter(c => !('url' in c) || c.url).map(c => {
+    if (c.wa)  return `<a class="qrb qrb-wa" href="${waLink(c.wa)}" target="_blank" rel="noopener">${c.l}</a>`;
+    if (c.url) return `<a class="qrb qrb-link" href="${c.url}" target="_blank" rel="noopener">${c.l}</a>`;
+    return `<button class="qrb" data-flow="${c.f}" data-label="${c.l}">${c.l}</button>`;
+  }).join('');
 
   if (!chips.some(c => c.f === 'inicio')) {
     html += `<button class="qrb qrb-back" data-flow="inicio" data-label="↩ Voltar ao início">↩ Início</button>`;

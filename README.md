@@ -40,7 +40,8 @@ partir dos atributos `data-wa`, `data-href` e `data-txt`.
 
 **Mexer no chat:** cada resposta é uma entrada em `flows` (`chatbot/flows.js`),
 com `msg` e `chips`. Um chip com `f` navega para outro fluxo; um chip com `wa`
-abre o WhatsApp.
+abre o WhatsApp; um chip com `url` abre um link externo (é assim que o fluxo
+"Quero agendar" mostra a agenda de horários — a URL fica em `data/site.js`).
 
 ## Antes de publicar
 

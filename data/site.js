@@ -21,6 +21,12 @@ const SITE = {
 
   fichaUrl:  'https://forms.gle/dgEXZfTjodpxRC9e7',   // Ficha de cadastro de paciente
 
+  /* Agenda de horários disponíveis (planilha no Drive da Liliane).
+     Termina em /preview: abre só para leitura, sem risco de o paciente
+     editar. Precisa estar compartilhada como "qualquer pessoa com o link
+     pode ver" — ver docs/PENDENCIAS.md. Deixe '' para esconder o botão. */
+  agendaUrl: 'https://docs.google.com/spreadsheets/d/1hpCfRma-IPkzvdlxccZm8t6DoDe0SYsh/preview',
+
   assistente: {
     nome:      'EVO',
     monograma: 'E',
