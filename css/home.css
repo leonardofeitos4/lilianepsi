@@ -8,21 +8,19 @@
   padding:calc(var(--safe-t) + 8px) 22px calc(var(--safe-b) + 128px);
 }
 
-/* ── Capa: sangra até a borda da tela, não fica presa aos 468px do home-wrap ── */
+/* ── Capa: a faixa sangra até a borda da tela, não fica presa aos 468px do
+   home-wrap. Mas a arte em si nunca passa do tamanho original (851×315): daí
+   para cima ela ficaria borrada. O fundo da faixa é o mesmo branco do fundo
+   da arte, então em tela grande a emenda não aparece — parece uma capa só,
+   sem esticar e sem cortar os desenhos das pontas. ── */
 .hero-banner{
   width:100vw;margin-left:calc(50% - 50vw);
   margin-top:calc(-1 * (var(--safe-t) + 8px));
   line-height:0;overflow:hidden;
+  background:#fff;
+  display:flex;justify-content:center;
 }
-.hero-banner img{width:100%;height:auto;display:block}
-
-/* Acima da largura de um celular, 100vw deixaria a capa gigante e cortaria
-   o resto da página; trava a altura e volta a cobrir, centralizado. A capa é
-   bem larga (851×315) e tem o nome no centro, então o corte é centralizado:
-   sobra o miolo com o cérebro e o nome, e se perdem os desenhos das pontas. */
-@media(min-width:560px){
-  .hero-banner img{height:260px;object-fit:cover;object-position:center}
-}
+.hero-banner img{width:100%;max-width:851px;height:auto;display:block}
 
 /* ── Marca: avatar sobreposto à capa + nome ── */
 .hdr{
