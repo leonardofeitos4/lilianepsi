@@ -36,7 +36,9 @@ Liliane (12/08):
   Mall. CASULU Colaborativo. 2 fotos.
 - **Estados** — Av. Epitácio Pessoa, 2055, Empresarial Bel Center. CASULU
   Colaborativo. 2 fotos. Essa clínica substituiu a **Altiplano** do esboço
-  original.
+  original — a Liliane **não atende no Altiplano**. Corrigido também na fala
+  do assistente (`chatbot/flows.js` → fluxo `clinicas`, 17/08), que ainda
+  citava o bairro antigo.
 
 Cada clínica agora é um card clicável na página **Clínicas**: a pessoa toca,
 entra numa página de detalhe só daquela clínica com as fotos do espaço (toca
@@ -111,6 +113,11 @@ Pendente:
 Pedido da Liliane (14/08): informar que há **parcelamento no cartão** e que o
 pacote **mês antecipado** tem desconto no valor final das sessões. Incluído no
 fluxo "Pacotes e valores", mantendo os valores em si só no WhatsApp (item 4).
+
+Atualizado (17/08) com o texto que a própria Liliane escreveu, palavra por
+palavra: "A Liliane oferece possibilidade de parcelamento no cartão com
+desconto no valor final das sessões na opção do pacote MÊS ANTECIPADO. Fale
+pelo WhatsApp para maiores informações."
 
 ## 9. Assistente digital
 

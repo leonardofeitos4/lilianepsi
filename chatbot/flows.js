@@ -41,7 +41,7 @@ const flows = {
   },
 
   clinicas: {
-    msg: `O atendimento acontece em três clínicas em João Pessoa (<strong>Bancários</strong>, <strong>Manaíra</strong> e <strong>Altiplano</strong>) e também <strong>online</strong>, para quem preferir.<br><br>Você pode ver os endereços completos na seção "Clínicas" aqui do perfil.`,
+    msg: `O atendimento acontece em três clínicas em João Pessoa (<strong>Bancários</strong>, <strong>Manaíra</strong> e <strong>Estados</strong>) e também <strong>online</strong>, para quem preferir.<br><br>Você pode ver os endereços completos na seção "Clínicas" aqui do perfil.`,
     chips: [
       { l: 'Como funciona o atendimento', f: 'atendimento' },
       { l: 'Quero agendar', f: 'agendar' },
@@ -49,7 +49,7 @@ const flows = {
   },
 
   pacotes: {
-    msg: `Os valores variam de acordo com o pacote de sessões escolhido.<br><br>Há a possibilidade de <strong>parcelamento no cartão</strong>, e o pacote <strong>mês antecipado</strong> tem desconto no valor final das sessões.<br><br>A Liliane passa os valores individualmente no WhatsApp, já explicando as opções disponíveis.`,
+    msg: `A Liliane oferece possibilidade de <strong>parcelamento no cartão</strong> com desconto no valor final das sessões na opção do pacote <strong>MÊS ANTECIPADO</strong>.<br><br>Fale pelo WhatsApp para maiores informações.`,
     chips: [
       { l: 'Falar sobre valores', wa: 'Olá! Gostaria de saber os valores dos pacotes de atendimento.' },
       { l: 'Como funciona o atendimento', f: 'atendimento' },
