@@ -31,6 +31,11 @@ const SITE = {
     nome:      'EVO',
     monograma: 'E',
     assinatura:'EVO · Assistente digital',
+
+    /* Data (AAAA-MM-DD) a partir da qual o assistente some sozinho do site
+       (card "Tire suas dúvidas", botão flutuante e a própria página de
+       chat). Deixe '' para nunca desativar automaticamente. */
+    desativarEm: '2026-10-16',
   },
 };
 

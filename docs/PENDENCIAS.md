@@ -48,9 +48,10 @@ bloco genérico solto embaixo da lista.
 
 ## 4. Gotas de terapia — `index.html` / `data/clinicas.js`
 
-O botão "Pacotes e valores" saiu da lista de links (a Liliane preferiu não
-ter um ponto de entrada fixo pra preço — quem perguntar, é respondido no
-WhatsApp ou pelo assistente). No lugar entrou **"Gotas de terapia"**, um
+O botão "Pacotes e valores" saiu da lista de links nessa época (a Liliane
+preferiu não ter um ponto de entrada fixo pra preço — quem perguntar, é
+respondido no WhatsApp ou pelo assistente). Depois voltou, como página
+própria — ver item 8. No lugar dele entrou **"Gotas de terapia"**, um
 espaço para troca de conhecimento e reflexões, com um carrossel de 4 artes
 que a Liliane mandou (`assets/img/gotas-carrossel-*.jpeg`).
 
@@ -108,16 +109,22 @@ Pendente:
   Se um dia ela quiser tirar o botão, é só deixar `agendaUrl: ''` em
   `data/site.js` que ele some sozinho do chat.
 
-## 8. Pacotes e pagamento — `chatbot/flows.js`
+## 8. Pacotes e pagamento — `index.html` (`#page-pacotes`)
 
 Pedido da Liliane (14/08): informar que há **parcelamento no cartão** e que o
-pacote **mês antecipado** tem desconto no valor final das sessões. Incluído no
-fluxo "Pacotes e valores", mantendo os valores em si só no WhatsApp (item 4).
+pacote **mês antecipado** tem desconto no valor final das sessões. Incluído a
+princípio no fluxo "Pacotes e valores" do assistente, mantendo os valores em
+si só no WhatsApp (item 4), e atualizado (17/08) com o texto que a própria
+Liliane escreveu.
 
-Atualizado (17/08) com o texto que a própria Liliane escreveu, palavra por
-palavra: "A Liliane oferece possibilidade de parcelamento no cartão com
-desconto no valor final das sessões na opção do pacote MÊS ANTECIPADO. Fale
-pelo WhatsApp para maiores informações."
+Atualizado de novo (02/10): a Liliane pediu o texto completo com os 3
+pacotes (parcelamento no cartão, mês antecipado e valor social) e que
+"Pacotes e valores" **saísse do assistente** — não deve mais depender do
+bot. Virou uma página própria (`#page-pacotes`, com os cards de cada opção e
+o CTA de WhatsApp), e ganhou um item fixo na lista de links da home, junto
+com "Ver horários disponíveis" (que leva direto pra agenda, `agendaUrl` do
+item 7). A entrada "Pacotes e valores" saiu de `chatbot/flows.js` por
+completo.
 
 ## 9. Assistente digital
 
@@ -128,3 +135,10 @@ do site lê daí — inclusive o título da página de chat.
 A apresentação dele agora é "Eu sou EVO", sem artigo, para não dar gênero ao
 nome. Se a Liliane preferir tratar como "o EVO" ou "a EVO", é só ajustar em
 `chatbot/engine.js` → `startChat()`.
+
+Pedido da Liliane (02/10): desativar o assistente a partir de 16/10/2026.
+Feito via `SITE.assistente.desativarEm` em `data/site.js` — a partir dessa
+data (comparando com o relógio de quem visita o site), o card "Tire suas
+dúvidas", o botão flutuante e a página do chat somem sozinhos, sem precisar
+mexer em nada no dia. Pra mudar a data ou cancelar, é só editar/esvaziar
+esse campo.

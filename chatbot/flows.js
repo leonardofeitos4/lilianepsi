@@ -26,7 +26,6 @@ const flows = {
     chips: [
       { l: '🧑‍⚕️ Como funciona o atendimento', f: 'atendimento' },
       { l: '📍 Clínicas e locais', f: 'clinicas' },
-      { l: '💳 Pacotes e valores', f: 'pacotes' },
       { l: '📅 Quero agendar', f: 'agendar' },
     ]
   },
@@ -35,7 +34,6 @@ const flows = {
     msg: `A Liliane atende <strong>crianças, adolescentes e adultos</strong>, com uma abordagem individualizada para cada fase da vida.<br><br>O primeiro passo é uma consulta inicial para entender o que te trouxe até aqui.`,
     chips: [
       { l: 'Clínicas e locais', f: 'clinicas' },
-      { l: 'Pacotes e valores', f: 'pacotes' },
       { l: 'Quero agendar', f: 'agendar' },
     ]
   },
@@ -45,14 +43,6 @@ const flows = {
     chips: [
       { l: 'Como funciona o atendimento', f: 'atendimento' },
       { l: 'Quero agendar', f: 'agendar' },
-    ]
-  },
-
-  pacotes: {
-    msg: `A Liliane oferece possibilidade de <strong>parcelamento no cartão</strong> com desconto no valor final das sessões na opção do pacote <strong>MÊS ANTECIPADO</strong>.<br><br>Fale pelo WhatsApp para maiores informações.`,
-    chips: [
-      { l: 'Falar sobre valores', wa: 'Olá! Gostaria de saber os valores dos pacotes de atendimento.' },
-      { l: 'Como funciona o atendimento', f: 'atendimento' },
     ]
   },
 

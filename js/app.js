@@ -19,8 +19,26 @@ function hydrateWaEm(root = document) {
   });
 }
 
+/* Compara no formato AAAA-MM-DD (ordenável como string, sem pegadinha de
+   fuso horário do Date) pra saber se já passou da data de desativação. */
+function assistenteDesativado() {
+  const limite = SITE.assistente.desativarEm;
+  if (!limite) return false;
+  const hoje = new Date();
+  const hojeISO = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, '0')}-${String(hoje.getDate()).padStart(2, '0')}`;
+  return hojeISO >= limite;
+}
+
+/* Some com o card, o botão flutuante e bloqueia a página do assistente
+   assim que a data em SITE.assistente.desativarEm é alcançada. */
+function desativarAssistenteSeNecessario() {
+  if (!assistenteDesativado()) return;
+  document.querySelectorAll('[data-assistente-entrada]').forEach(el => el.remove());
+}
+
 function hydrate() {
   hydrateWaEm();
+  desativarAssistenteSeNecessario();
 
   /* href do Instagram */
   document.querySelectorAll('[data-href="instagram"]').forEach(el => {
@@ -38,6 +56,14 @@ function hydrate() {
   /* href da ficha de cadastro de paciente */
   document.querySelectorAll('[data-href="ficha"]').forEach(el => {
     el.setAttribute('href', SITE.fichaUrl);
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener');
+  });
+
+  /* href da agenda de horários (o card some se não houver agendaUrl) */
+  document.querySelectorAll('[data-href="agenda"]').forEach(el => {
+    if (!SITE.agendaUrl) { el.remove(); return; }
+    el.setAttribute('href', SITE.agendaUrl);
     el.setAttribute('target', '_blank');
     el.setAttribute('rel', 'noopener');
   });
@@ -68,6 +94,7 @@ const ROTAS = {
   'page-clinicas':        'clinicas',
   'page-clinica-detalhe': 'clinica',
   'page-gotas':           'gotas',
+  'page-pacotes':         'pacotes',
   'page-chat':            'duvidas',
 };
 const POR_SLUG = {};
@@ -101,7 +128,10 @@ function sincronizar() {
   home.classList.add('behind');
   fabs.style.cssText = 'opacity:0;pointer-events:none';
 
-  if (id === 'page-chat' && !aiStarted) { aiStarted = true; startChat(); }
+  if (id === 'page-chat') {
+    if (assistenteDesativado()) { go(''); return; }
+    if (!aiStarted) { aiStarted = true; startChat(); }
+  }
 }
 
 addEventListener('hashchange', sincronizar);
