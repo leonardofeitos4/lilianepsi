@@ -44,6 +44,7 @@ function runFlow(id, label) {
   if (!f) return;
   disableChips();
   if (label) userMsg(label);
+  if (label && typeof gtag === 'function') gtag('event', 'chatbot', { acao: label });
   botMsg(f.msg, f.chips);
 }
 
